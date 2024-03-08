@@ -54,9 +54,10 @@ message Freelancer {
   string phone_number = 8;
   string resume_path = 9;
   string bio = 10;
-  float rating = 11;
-  string refresh_token = 12;
-  google.protobuf.Timestamp created_at = 13;
-  google.protobuf.Timestamp updated_at = 14;
-  google.protobuf.Timestamp deleted_at = 15;
+  repeated string skills = 11;
+  float rating = 12;
+  string refresh_token = 13;
+  google.protobuf.Timestamp created_at = 14;
+  google.protobuf.Timestamp updated_at = 15;
+  google.protobuf.Timestamp deleted_at = 16;
 }
