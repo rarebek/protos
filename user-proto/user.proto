@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "jobly/user-service";
+
+service UserService {
+  rpc CreateEmployee(Employee) returns (Employee);
+  rpc UpdateEmployee(Employee) returns (Employee);
+  rpc GetEmployeeByField(FieldRequest) returns (Employee);
+  rpc DeleteEmployeeByField(FieldRequest) returns (Status);
+
+  rpc CreateFreelancer(Freelancer) returns (Freelancer);
+  rpc UpdateFreelancer(Freelancer) returns (Freelancer);
+  rpc GetFreelancerByField(FieldRequest) returns (Freelancer);
+  rpc DeleteFreelancerByField(FieldRequest) returns (Status);
+}
+
+message FieldRequest {
+  string field = 1;
+  string value = 2;
+}
+
+message Status {
+  bool success = 1;
+}
+
+message Employee {
+  string id = 1;
+  string company_name = 2;
+  string location = 3;
+  string description = 4;
+  string email = 5;
+  string password = 6;
+  string logo = 7;
+  string website_url = 8;
+  string industry = 9;
+  int64 employee_count = 10;
+  string phone_number = 11;
+  string refresh_token = 12;
+  google.protobuf.Timestamp created_at = 13;
+  google.protobuf.Timestamp updated_at = 14;
+  google.protobuf.Timestamp deleted_at = 15;
+}
+
+message Freelancer {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string username = 4;
+  string profile_image = 5;
+  string email = 6;
+  string password = 7;
+  string phone_number = 8;
+  string resume_path = 9;
+  string bio = 10;
+  float rating = 11;
+  string refresh_token = 12;
+  google.protobuf.Timestamp created_at = 13;
+  google.protobuf.Timestamp updated_at = 14;
+  google.protobuf.Timestamp deleted_at = 15;
+}
